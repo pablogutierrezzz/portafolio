@@ -12,17 +12,32 @@ body{
 }
 
 header{
-    & h1{
-        width: 31.5ch;
-        animation: escribir 3s steps(31), parpadear .5s step-end infinite;
+    height: 100vh;
+
+    & p{
+        width: 102ch;
+        animation: escribir 3s steps(50), parpadear .5s step-end infinite;
         white-space: nowrap;
         overflow: hidden;
         border-right: 3px solid black;
     }
 
-    & div{
-        height: 100vh;
+    & h1{
+        font-size: 80px;
     }
+
+    & img{
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+.sub-header{
+    width: 80%;
+    margin: auto;
+    display: flex;
+
 }
 
 @keyframes escribir {
