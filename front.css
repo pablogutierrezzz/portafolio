@@ -41,10 +41,9 @@ header{
         transition: 0.5s;
     }
 
-}
-
-span:active::before{
-    left: 55%;
+    & span:active::before{
+        left: 55%;
+    }
 }
 
 .cambios{
