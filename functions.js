@@ -15,6 +15,7 @@ const maquinadeescribir = (text = "", tiempo = 200, etiqueta = "") => {
 }
 
 btn.addEventListener("click", () => {
+    document.body.classList.toggle('dark');
     btn.classList.toggle("cambios");
 })
 
