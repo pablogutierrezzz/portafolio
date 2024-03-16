@@ -7,8 +7,13 @@
     font-style: normal;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: #f3f3f3;
+    transition: 1s;
 }
 
 .dark{
@@ -152,7 +157,6 @@ header{
 
     & img{
         width: 40%;
-        height: auto;
     }
 }
 
@@ -164,6 +168,7 @@ nav{
     justify-content: end;
     align-items: center;
     padding-right: 10px;
+    z-index: 1;
 
     & a{
         font-size: 25px;
@@ -195,4 +200,115 @@ nav{
         left: 35px;
         width: 75px;
     }
+}
+
+.first-main{
+    background-color: #7f8084;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    color: #f3f3f3;
+
+    & h2{
+        text-align: center;
+        margin-top: 180px;
+        grid-column: 1;
+        font-size: 70px;
+        position: sticky;
+        top: 200px;
+        z-index: 0;
+    }
+
+    & p{
+        grid-column: 2;
+        font-size: 24px;
+        margin-right: 100px;
+        margin-top: 80px;
+    }
+
+    & p:nth-child(2){
+        text-align: center;
+    }
+
+    & div{
+        grid-column: 2;
+    }
+}
+
+.icons{
+
+    & p{
+        font-size: 38px;
+    }
+
+    & p:nth-child(5){
+        margin-top: 20px;
+    }
+
+    & p:nth-child(9){
+        margin-top: 20px;
+    }
+
+    & div{
+        background: rgb(255,161,49);
+        background: linear-gradient(90deg, rgba(255,161,49,1) 0%, rgba(84,153,199,1) 100%);
+        outline: 2px solid black;
+        margin-right: 5px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15%;
+        margin-bottom: 30px;
+    }
+}
+
+.icons span{
+    margin-right: 5px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.icons span:nth-child(2){
+    background-color: #F5B041;
+    outline: 2px solid black;
+}
+
+.icons span:nth-child(3){
+    background-color: #3498DB;
+    outline: 2px solid black;
+}
+
+.icons span:nth-child(4){
+    background-color: #FFF779;
+    outline: 2px solid black;
+    color: black;
+}
+
+.icons span:nth-child(6){
+    background-color: #EC7063;
+    outline: 2px solid black;
+    color: black;
+}
+
+.icons span:nth-child(7){
+    background: rgb(255,240,0);
+    background: linear-gradient(90deg, rgba(255,240,0,1) 0%, rgba(84,153,199,1) 100%);
+    outline: 2px solid black;
+    color: black;
+}
+
+.icons span:nth-child(8){
+    background-color: #5499C7;
+    outline: 2px solid black;
+    color: black;
+}
+
+#sql{
+    background: none;
+    outline: none;
+    padding: 0;
+    font-size: 25px;
+    color: black;
 }
