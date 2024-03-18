@@ -312,3 +312,35 @@ nav{
     font-size: 25px;
     color: black;
 }
+
+.second-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+
+    & h2{
+        text-align: center;
+        margin-top: 180px;
+        grid-column: 2;
+        font-size: 70px;
+        position: sticky;
+        top: 200px;
+        z-index: 0;
+    }
+
+    & span{
+        background-color: black;
+        width: 80%;
+        height: 80%;
+        margin: auto;
+    }
+
+    & span:first-child{
+        grid-column: 1;
+    }
+
+    & span:nth-child(2){
+        grid-column: 1;
+    }
+
+}
