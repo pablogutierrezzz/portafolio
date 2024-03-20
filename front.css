@@ -13,7 +13,7 @@ html{
 
 body{
     background-color: #f3f3f3;
-    transition: 1s;
+    transition: 0.4s;
 }
 
 .dark{
@@ -32,7 +32,7 @@ body.dark nav{
     }
 
     & a:hover::before{
-        background-color: black;
+        background: black;
     }
 }
 
@@ -48,6 +48,19 @@ body.dark{
     .g-b{
         display: none;
     }
+}
+
+body::-webkit-scrollbar{
+    background: #c7bdb1;
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #5a473a;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+    background: #161412;
 }
 
 header{
@@ -162,12 +175,11 @@ header{
 
 nav{
     display: flex;
-    background-color: #262526;
+    background: #262526;
     position: sticky;
     top: 0;
     justify-content: end;
     align-items: center;
-    padding-right: 10px;
     z-index: 1;
 
     & a{
@@ -199,6 +211,20 @@ nav{
         top: 11%;
         left: 35px;
         width: 75px;
+    }
+}
+
+.expand-light{
+    &::before{
+        width: 80%;
+        background: #f3f3f3;
+    }
+}
+
+.expand-dark{
+    &::before{
+        width: 80%;
+        background: black;
     }
 }
 
@@ -236,7 +262,6 @@ nav{
 }
 
 .icons{
-
     & p{
         font-size: 38px;
     }

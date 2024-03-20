@@ -1,5 +1,10 @@
-let parrafo = document.getElementById("p");
-let btn = document.getElementById("dark-mode");
+let parrafo = document.getElementById('p');
+let btn = document.getElementById('dark-mode'); 
+let title_1 = document.getElementById('first-title');
+let title_2 = document.getElementById('second-title');
+let a_1 = document.getElementById('first-a');
+let a_2 = document.getElementById('second-a');
+let nav = document.querySelector('nav');
 
 const maquinadeescribir = (text = "", tiempo = 200, etiqueta = "") => {
     let array_caracteres = text.split("");
@@ -14,10 +19,53 @@ const maquinadeescribir = (text = "", tiempo = 200, etiqueta = "") => {
     }, tiempo)
 }
 
-btn.addEventListener("click", () => {
-    document.body.classList.toggle('dark');
-    btn.classList.toggle("cambios");
-})
-
 maquinadeescribir("Hola me llamo Pablo Gutierrez, tengo 17 años y soy desarrollador full-stack Trainee, este es mi portafolio personal, espero que sea agradable a la vista.", 50, parrafo);
 
+btn.addEventListener("click", () => {
+    document.body.classList.toggle('dark');
+    btn.classList.toggle('cambios');
+
+    if(localStorage.getItem('theme') == 'false'){
+        localStorage.setItem('theme', 'true');
+    } else if(localStorage.getItem('theme') == 'true') {
+        localStorage.setItem('theme', 'false');
+    } else if(localStorage.getItem('theme') == null){
+        localStorage.setItem('theme', 'true');
+    }
+})
+
+if(localStorage.getItem('theme') == 'true'){
+    document.body.classList.add('dark');
+    btn.classList.add('cambios');
+} else if(localStorage.getItem('theme') == 'false'){
+    document.body.classList.remove('dark');
+    btn.classList.remove('cambios');
+}
+
+window.addEventListener('scroll', () => {
+    let pos_title_1 = title_1.getBoundingClientRect().top;
+    let background_nav = getComputedStyle(nav);
+
+    if(pos_title_1 == 270 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
+        a_1.classList.add('expand-light');
+    } else if(pos_title_1 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
+        a_1.classList.add('expand-dark');
+    } else if(pos_title_1 != 270){
+        a_1.classList.remove('expand-light');
+        a_1.classList.remove('expand-dark');
+    }
+})
+
+window.addEventListener('scroll', () => {
+    let pos_title_2 = title_2.getBoundingClientRect().top;
+    let background_nav = getComputedStyle(nav);
+
+    if(pos_title_2 == 270 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
+        a_2.classList.add('expand-light');
+    } else if(pos_title_2 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
+        a_2.classList.add('expand-dark');
+    } else if(pos_title_2 != 270){
+        a_2.classList.remove('expand-light');
+        a_2.classList.remove('expand-dark');
+    }
+})
