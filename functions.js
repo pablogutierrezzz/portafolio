@@ -1,10 +1,15 @@
 let parrafo = document.getElementById('p');
-let btn = document.getElementById('dark-mode'); 
+let btn = document.getElementById('dark-mode');
+
 let title_1 = document.getElementById('first-title');
 let title_2 = document.getElementById('second-title');
+let title_3 = document.getElementById('contact');
 let a_1 = document.getElementById('first-a');
 let a_2 = document.getElementById('second-a');
+let a_3 = document.getElementById('third-a');
 let nav = document.querySelector('nav');
+
+const btn_s = document.getElementById('button');
 
 const maquinadeescribir = (text = "", tiempo = 200, etiqueta = "") => {
     let array_caracteres = text.split("");
@@ -47,9 +52,9 @@ window.addEventListener('scroll', () => {
     let background_nav = getComputedStyle(nav);
 
     if(pos_title_1 == 270 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
-        a_1.classList.add('expand-light');
-    } else if(pos_title_1 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
         a_1.classList.add('expand-dark');
+    } else if(pos_title_1 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
+        a_1.classList.add('expand-light');
     } else if(pos_title_1 != 270){
         a_1.classList.remove('expand-light');
         a_1.classList.remove('expand-dark');
@@ -61,11 +66,49 @@ window.addEventListener('scroll', () => {
     let background_nav = getComputedStyle(nav);
 
     if(pos_title_2 == 270 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
-        a_2.classList.add('expand-light');
-    } else if(pos_title_2 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
         a_2.classList.add('expand-dark');
+    } else if(pos_title_2 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
+        a_2.classList.add('expand-light');
     } else if(pos_title_2 != 270){
         a_2.classList.remove('expand-light');
         a_2.classList.remove('expand-dark');
     }
 })
+
+window.addEventListener('scroll', () => {
+    let pos_title_3 = title_3.getBoundingClientRect().top;
+    let background_nav = getComputedStyle(nav);
+
+    if(pos_title_3 <= 246 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
+        a_3.classList.add('expand-dark');
+    } else if(pos_title_3 <= 246 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
+        a_3.classList.add('expand-light');
+    } else if(pos_title_3 != 246){
+        a_3.classList.remove('expand-light');
+        a_3.classList.remove('expand-dark');
+    }
+})
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_kihid7f';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      console.log('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      console.log(JSON.stringify(err));
+    });
+
+    document.getElementById('from_name').value = '';
+    document.getElementById('email_id').value = '';
+    document.getElementById('message').value = '';
+});
+

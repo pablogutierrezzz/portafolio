@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Madimi One", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
 }
@@ -165,17 +166,60 @@ header{
 
     & h1{
         font-size: 100px;
-        margin-top: 65px;
+        margin-top: 85px;
     }
 
     & img{
         width: 40%;
     }
+
+    & .redes{
+        display: flex;
+        margin: 15px 0 20px 0;
+        gap: 15px;
+    }
+
+    & .redes a{
+        position: relative;
+        background: #afb2b7;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 25px;
+        text-decoration: none;
+        color: #262526;
+        outline: 2px solid #262526;
+        z-index: 1;
+        transition: 0.3s;
+    }
+
+    & .redes a::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        border-radius: 7px;
+        background: #262526;
+        transition: 0.3s;
+        z-index: -1;
+    }
+
+    & .redes a:hover::before{
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    & .redes a:hover{
+        color: #f3f3f3;
+        transition: 0.3s;
+    }
 }
+
 
 nav{
     display: flex;
-    background: #262526;
+    background: #5a473a;
     position: sticky;
     top: 0;
     justify-content: end;
@@ -185,17 +229,18 @@ nav{
     & a{
         font-size: 25px;
         text-decoration: none;
-        color: #d7d8da;
+        color: #ffffff;
         padding: 20px;
         position: relative;
+        text-align: center;
     }
 
     & a::before{
         content: '';
         position: absolute;
-        background: #f3f3f3;
+        background: #ffffff;
         top: 80%;
-        left: 10%;
+        left: 5%;
         height: 8%;
         width: 0;
         border-radius: 10px;
@@ -203,27 +248,26 @@ nav{
     }
 
     & a:hover::before{
-        width: 80%;
+        width: 90%;
     }
 
     & img{
         position: absolute;
-        top: 11%;
-        left: 35px;
-        width: 75px;
+        left: 50px;
+        width: 70px;
     }
 }
 
 .expand-light{
     &::before{
-        width: 80%;
-        background: #f3f3f3;
+        width: 90%;
+        background: #ffffff;
     }
 }
 
 .expand-dark{
     &::before{
-        width: 80%;
+        width: 90%;
         background: black;
     }
 }
@@ -232,28 +276,23 @@ nav{
     background-color: #7f8084;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 200px;
     color: #f3f3f3;
 
     & h2{
         text-align: center;
-        margin-top: 180px;
         grid-column: 1;
         font-size: 70px;
         position: sticky;
+        margin-top: 270px;
         top: 270px;
-        z-index: 0;
-    }
-
-    & p{
-        grid-column: 2;
-        font-size: 24px;
-        margin-right: 100px;
-        margin-top: 80px;
     }
 
     & p:nth-child(2){
+        grid-column: 2;
+        font-size: 24px;
         text-align: center;
+        margin: 100px 100px 60px 0;
     }
 
     & div{
@@ -263,36 +302,15 @@ nav{
 
 .icons{
     & p{
-        font-size: 38px;
-    }
-
-    & p:nth-child(5){
-        margin-top: 20px;
-    }
-
-    & p:nth-child(9){
-        margin-top: 20px;
-    }
-
-    & div{
-        background: rgb(255,161,49);
-        background: linear-gradient(90deg, rgba(255,161,49,1) 0%, rgba(84,153,199,1) 100%);
-        outline: 2px solid black;
-        margin-right: 5px;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 15%;
-        margin-bottom: 30px;
+        font-size: 34px;
     }
 }
 
 .icons span{
-    margin-right: 5px;
+    margin: 5px 5px 5px 0;
     font-size: 20px;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .icons span:nth-child(2){
@@ -311,37 +329,35 @@ nav{
     color: black;
 }
 
-.icons span:nth-child(6){
+.icons span:nth-child(5){
     background-color: #EC7063;
     outline: 2px solid black;
     color: black;
 }
 
-.icons span:nth-child(7){
+.icons span:nth-child(6){
     background: rgb(255,240,0);
     background: linear-gradient(90deg, rgba(255,240,0,1) 0%, rgba(84,153,199,1) 100%);
     outline: 2px solid black;
     color: black;
 }
 
-.icons span:nth-child(8){
+.icons span:nth-child(7){
     background-color: #5499C7;
     outline: 2px solid black;
     color: black;
 }
 
-#sql{
-    background: none;
-    outline: none;
-    padding: 0;
-    font-size: 25px;
+.icons span:nth-child(8){
+    background: rgb(255,161,49);
+    background: linear-gradient(90deg, rgba(255,161,49,1) 0%, rgba(84,153,199,1) 100%);
+    outline: 2px solid black;
     color: black;
 }
 
 .second-main{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     background-color: #d7d8da;
 
     & h2{
@@ -352,7 +368,6 @@ nav{
         font-size: 70px;
         position: sticky;
         top: 270px;
-        z-index: 0;
     }
 
     & span{
@@ -365,6 +380,7 @@ nav{
         padding: 20px;
         text-align: center;
         background-color: #afb2b7;
+        width: 80%;
     }
 
     & span:nth-child(1){
@@ -375,16 +391,7 @@ nav{
     & span:nth-child(2){
         grid-column: 1;
         grid-row: 2;
-    }
-
-    & span:nth-child(3){
-        grid-column: 1;
-        grid-row: 3;
-    }
-
-    & span:nth-child(4){
-        grid-column: 1;
-        grid-row: 4;
+        margin-bottom: 100px;
     }
 }
 
@@ -396,4 +403,29 @@ nav{
 .second-main span a{
     display: block;
     width: 100%;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    background: #c7bdb1;
+
+    & .sub-footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background: #b7c2ce;
+        border-radius: 15px;
+        outline: 2px solid black;
+        filter: drop-shadow(0 0 5px black);
+    }
+
+    & .sub-footer form{
+        display: flex;
+        flex-direction: column;
+    }
 }
