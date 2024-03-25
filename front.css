@@ -422,6 +422,8 @@ footer{
         border-radius: 15px;
         outline: 2px solid black;
         filter: drop-shadow(0 0 5px black);
+        gap: 20px;
+        padding: 15px;
     }
 
     & .sub-footer form{
@@ -429,3 +431,8 @@ footer{
         flex-direction: column;
     }
 }
+
+.sub-footer label{
+    position: absolute;
+}
+

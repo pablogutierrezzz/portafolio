@@ -66,9 +66,18 @@
     <footer id="contact">
         <div class="sub-footer">
             <form id="form">
-                <input type="text" placeholder="Su nombre" name="from_name" id="from_name">
-                <input type="text" placeholder="Su email" name="email_id" id="email_id">
-                <textarea cols="30" rows="10" placeholder="Su mensaje" id="message" name="message"></textarea>
+                <span>
+                    <label for="from_name">Su nombre</label>
+                    <input type="text" name="from_name" id="from_name">
+                </span>
+                <span>
+                    <label for="email_id">Su email</label>
+                    <input type="text" name="email_id" id="email_id">
+                </span>
+                <span>
+                    <label for="message">Su mensaje</label>
+                    <textarea cols="30" rows="10" id="message" name="message"></textarea>
+                </span>
                 <input type="submit" id="button" value="Enviar email">
             </form>
             <div>
