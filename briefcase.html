@@ -67,16 +67,16 @@
         <div class="sub-footer">
             <form id="form">
                 <span>
-                    <label for="from_name">Su nombre</label>
-                    <input type="text" name="from_name" id="from_name">
+                    <label for="from_name" id="from_name-label">Nombre</label>
+                    <input type="text" name="from_name" id="from_name" autocomplete="off" required>
                 </span>
                 <span>
-                    <label for="email_id">Su email</label>
-                    <input type="text" name="email_id" id="email_id">
+                    <label for="email_id" id="email_id-label">Email</label>
+                    <input type="text" name="email_id" id="email_id" autocomplete="off" required>
                 </span>
                 <span>
-                    <label for="message">Su mensaje</label>
-                    <textarea cols="30" rows="10" id="message" name="message"></textarea>
+                    <label for="message" id="message-label">Mensaje</label>
+                    <textarea cols="30" rows="3" id="message" name="message" required></textarea>
                 </span>
                 <input type="submit" id="button" value="Enviar email">
             </form>

@@ -409,12 +409,11 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60vh;
+    height: 70vh;
     background: #c7bdb1;
 
     & .sub-footer{
         display: flex;
-        justify-content: center;
         align-items: center;
         width: 90%;
         height: 90%;
@@ -423,7 +422,7 @@ footer{
         outline: 2px solid black;
         filter: drop-shadow(0 0 5px black);
         gap: 20px;
-        padding: 15px;
+        padding: 10px;
     }
 
     & .sub-footer form{
@@ -432,7 +431,44 @@ footer{
     }
 }
 
-.sub-footer label{
-    position: absolute;
+#form{
+    height: 100%;
+    padding: 0 25px 0 25px;
+
+    & label{
+        position: absolute;
+        top: 60%;
+        left: 10px;
+        font-size: 20px;
+        transition: 0.4s;
+    }
+    
+    & span input{
+        padding: 10px;
+        font-size: 18px;
+        margin-top: 30px;
+    }
+    
+    & span{
+        position: relative;
+    }
+
+    & textarea{
+        margin-top: 30px;
+        resize: none;
+        padding: 10px;
+        font-size: 18px;    
+    }
+
+    & .up{
+        transition: 0.4s;
+        top: 15%;
+        left: 2%;
+    }
 }
 
+#button{
+    font-size: 18px;
+    padding: 10px;
+    width: 50%;
+}

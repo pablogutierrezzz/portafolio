@@ -11,6 +11,13 @@ let nav = document.querySelector('nav');
 
 const btn_s = document.getElementById('button');
 
+let e_label = document.getElementById('email_id-label');
+let n_label = document.getElementById('from_name-label');
+let m_label = document.getElementById('message-label');
+let from_name = document.getElementById('from_name');
+let email_id = document.getElementById('email_id');
+let message = document.getElementById('message');
+
 const maquinadeescribir = (text = "", tiempo = 200, etiqueta = "") => {
     let array_caracteres = text.split("");
     let cont = 0;
@@ -112,3 +119,32 @@ document.getElementById('form')
     document.getElementById('message').value = '';
 });
 
+from_name.addEventListener('focus', () => {
+    n_label.classList.add('up');
+})
+
+from_name.addEventListener('blur', () => {
+    if(from_name.value == ""){
+        n_label.classList.remove('up');
+    }
+})
+
+email_id.addEventListener('focus', () => {
+    e_label.classList.add('up');
+})
+
+email_id.addEventListener('blur', () => {
+    if(email_id.value == ""){
+        e_label.classList.remove('up');
+    }
+})
+
+message.addEventListener('focus', () => {
+    m_label.classList.add('up');
+})
+
+message.addEventListener('blur', () => {
+    if(message.value == ""){
+        m_label.classList.remove('up');
+    }
+})
