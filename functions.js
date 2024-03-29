@@ -1,22 +1,14 @@
 let parrafo = document.getElementById('p');
 let btn = document.getElementById('dark-mode');
 
-let title_1 = document.getElementById('first-title');
-let title_2 = document.getElementById('second-title');
-let title_3 = document.getElementById('contact');
-let a_1 = document.getElementById('first-a');
-let a_2 = document.getElementById('second-a');
-let a_3 = document.getElementById('third-a');
-let nav = document.querySelector('nav');
-
-const btn_s = document.getElementById('button');
-
 let e_label = document.getElementById('email_id-label');
 let n_label = document.getElementById('from_name-label');
-let m_label = document.getElementById('message-label');
 let from_name = document.getElementById('from_name');
 let email_id = document.getElementById('email_id');
-let message = document.getElementById('message');
+
+let nav = document.getElementById('nav-two');
+
+const btn_s = document.getElementById('button');
 
 const maquinadeescribir = (text = "", tiempo = 200, etiqueta = "") => {
     let array_caracteres = text.split("");
@@ -31,7 +23,7 @@ const maquinadeescribir = (text = "", tiempo = 200, etiqueta = "") => {
     }, tiempo)
 }
 
-maquinadeescribir("Hola me llamo Pablo Gutierrez, tengo 17 años y soy desarrollador full-stack Trainee, este es mi portafolio personal, espero que sea agradable a la vista.", 50, parrafo);
+maquinadeescribir("Hola me llamo Pablo Gutierrez, tengo 18 años y soy desarrollador full-stack Trainee, este es mi portafolio personal, espero que sea agradable a la vista.", 50, parrafo);
 
 btn.addEventListener("click", () => {
     document.body.classList.toggle('dark');
@@ -54,48 +46,6 @@ if(localStorage.getItem('theme') == 'true'){
     btn.classList.remove('cambios');
 }
 
-window.addEventListener('scroll', () => {
-    let pos_title_1 = title_1.getBoundingClientRect().top;
-    let background_nav = getComputedStyle(nav);
-
-    if(pos_title_1 == 270 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
-        a_1.classList.add('expand-dark');
-    } else if(pos_title_1 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
-        a_1.classList.add('expand-light');
-    } else if(pos_title_1 != 270){
-        a_1.classList.remove('expand-light');
-        a_1.classList.remove('expand-dark');
-    }
-})
-
-window.addEventListener('scroll', () => {
-    let pos_title_2 = title_2.getBoundingClientRect().top;
-    let background_nav = getComputedStyle(nav);
-
-    if(pos_title_2 == 270 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
-        a_2.classList.add('expand-dark');
-    } else if(pos_title_2 == 270 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
-        a_2.classList.add('expand-light');
-    } else if(pos_title_2 != 270){
-        a_2.classList.remove('expand-light');
-        a_2.classList.remove('expand-dark');
-    }
-})
-
-window.addEventListener('scroll', () => {
-    let pos_title_3 = title_3.getBoundingClientRect().top;
-    let background_nav = getComputedStyle(nav);
-
-    if(pos_title_3 <= 246 && background_nav.getPropertyValue("background").slice(0, 15) == "rgb(38, 37, 38)"){
-        a_3.classList.add('expand-dark');
-    } else if(pos_title_3 <= 246 && background_nav.getPropertyValue("background").slice(0, 15) != "rgb(38, 37, 38)"){
-        a_3.classList.add('expand-light');
-    } else if(pos_title_3 != 246){
-        a_3.classList.remove('expand-light');
-        a_3.classList.remove('expand-dark');
-    }
-})
-
 document.getElementById('form')
  .addEventListener('submit', function(event) {
    event.preventDefault();
@@ -117,34 +67,43 @@ document.getElementById('form')
     document.getElementById('from_name').value = '';
     document.getElementById('email_id').value = '';
     document.getElementById('message').value = '';
+    n_label.classList.remove('up');
+    from_name.classList.remove('borders');
+    e_label.classList.remove('up');
+    email_id.classList.remove('borders');
 });
 
 from_name.addEventListener('focus', () => {
     n_label.classList.add('up');
+    from_name.classList.add('borders');
 })
 
 from_name.addEventListener('blur', () => {
     if(from_name.value == ""){
         n_label.classList.remove('up');
+        from_name.classList.remove('borders');
     }
 })
 
 email_id.addEventListener('focus', () => {
     e_label.classList.add('up');
+    email_id.classList.add('borders');
 })
 
 email_id.addEventListener('blur', () => {
     if(email_id.value == ""){
         e_label.classList.remove('up');
+        email_id.classList.remove('borders');
     }
 })
 
-message.addEventListener('focus', () => {
-    m_label.classList.add('up');
-})
+if(window.innerWidth <= 460){
 
-message.addEventListener('blur', () => {
-    if(message.value == ""){
-        m_label.classList.remove('up');
-    }
-})
+    window.addEventListener('scroll', () => {
+        setTimeout(() =>{
+            nav.classList.add('filtro');
+        }, 4000)
+    })
+
+}
+

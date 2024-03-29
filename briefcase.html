@@ -24,7 +24,7 @@
                     <a href="https://www.instagram.com/pablitogutierrezzz/" target="_blank"><i class="fa-brands fa-instagram"></i> Mi instagram</a>
                     <a href="https://github.com/pablitogutierrez" target="_blank"><i class="fa-brands fa-github"></i> Mi github</a>
                 </div>
-                <p id="p">Hola me llamo Pablo Gutierrez, tengo 17 años y soy desarrollador full-stack Trainee, este es mi portafolio personal, espero que sea agradable a la vista.</p>
+                <p id="p" class="p-look">Hola me llamo Pablo Gutierrez, tengo 18 años y soy desarrollador full-stack Trainee, este es mi portafolio personal, espero que sea agradable a la vista.</p>
             </div>
             <img src="img/desarrollador.png">
         </div>
@@ -34,12 +34,25 @@
         <img class="g-n" src="img/gato_negro.png">
         <a href="#first-main" id="first-a">Habilidades</a>
         <a href="#second-main" id="second-a">Proyectos</a>
-        <a href="#contact" id="third-a">Contacto</a>
+        <a href="#footer" id="third-a">Contacto</a>
+    </nav>
+    <nav class="nav-two" id="nav-two">
+        <img class="g-b" src="img/gato_blanco.png">
+        <img class="g-n" src="img/gato_negro.png">
+        <a href="#first-main">
+            <i class="fa-solid fa-code"></i>
+        </a>
+        <a href="#second-main">
+            <i class="fa-solid fa-diagram-project"></i>
+        </a>
+        <a href="#footer">
+            <i class="fa-solid fa-address-card"></i>
+        </a>
     </nav>
     <main>
         <div class="first-main" id="first-main">
             <h2 id="first-title">Habilidades</h2>
-            <p>Estuve desarrollando mis habilidades gracias a la escuela, pero especialmente gracias a cursos que miraba desde YouTube, leyendo en foros sobre programación y haciendo proyectos para practicar y mejorar mis conocimientos. Tengo experiencia laboral como freelancer, hice un software para un prestamista que sirve para llevar un control de préstamos y de clientes, es mi único trabajo por ahora. Acá abajo muestro las tecnologías que aprendí y que desempeño en el día a día para mejorar como desarrollador.</p>
+            <p>Estuve desarrollando mis habilidades gracias a la escuela, pero especialmente gracias a cursos que miraba desde YouTube, leyendo en foros sobre programación y haciendo proyectos para practicar y mejorar mis conocimientos. Tengo experiencia laboral como freelancer, hice un software que sirve para llevar un control de clientes y sus respectivos pagos, es mi único trabajo por ahora. Acá abajo muestro las tecnologías que aprendí y que desempeño en el día a día para mejorar como desarrollador.</p>
             <div class="icons">
                 <p>Tecnologías que aprendí hasta ahora</p>
                 <span class="fa-brands fa-html5"> html</span>
@@ -54,37 +67,46 @@
         <div class="second-main" id="second-main">
             <h2 id="second-title">Proyectos</h2>
             <span>
-                <img src="img/soon.png">
-                <a href="">Próximamente</a>
+                <a href="">
+                    <img src="img/soon.png">
+                    Próximamente
+                </a>
             </span>
             <span>
-                <img src="img/soon.png">
-                <a href="">Próximamente</a>
+                <a href="">
+                    <img src="img/soon.png">
+                    Próximamente
+                </a>
             </span>
         </div>
     </main>
-    <footer id="contact">
-        <div class="sub-footer">
-            <form id="form">
-                <span>
-                    <label for="from_name" id="from_name-label">Nombre</label>
-                    <input type="text" name="from_name" id="from_name" autocomplete="off" required>
-                </span>
-                <span>
-                    <label for="email_id" id="email_id-label">Email</label>
-                    <input type="text" name="email_id" id="email_id" autocomplete="off" required>
-                </span>
-                <span>
-                    <label for="message" id="message-label">Mensaje</label>
-                    <textarea cols="30" rows="3" id="message" name="message" required></textarea>
-                </span>
-                <input type="submit" id="button" value="Enviar email">
-            </form>
-            <div>
-                <h1>Contacto</h1>
-            </div>
+    <footer id="footer">
+        <form id="form">
+            <span>
+                <label for="from_name" id="from_name-label">Nombre y apellido</label>
+                <input type="text" name="from_name" id="from_name" autocomplete="off" required>
+            </span>
+            <span>
+                <label for="email_id" id="email_id-label">Email</label>
+                <input type="email" name="email_id" id="email_id" autocomplete="off" required>
+            </span>
+            <span>
+                <textarea cols="30" rows="4" placeholder="Mensaje" id="message" name="message" required></textarea>
+            </span>
+            <button type="submit" id="button">
+                Enviar email
+            </button>
+        </form>
+        <div class="contacto">
+            <h1>Sobre mi <i class="fa-solid fa-user"></i></h1>
+            <img src="img/gato_blanco_negro.png">
+            <img src="img/gato_marmolado">
+            <p><i class="fa-solid fa-location-dot"></i> Buenos Aires, Argentina.</p>
+            <p><i class="fa-solid fa-envelope"></i> pabloezequielgutierrez16@gmail.com</p>
+            <p>Me gustan mucho los gatos, el café, estudiar y trabajar, y la música en general, pero tengo un ídolo musical que es Gustavo Cerati. Soy un chico muy alegre que transmite buena energía a otras personas y me encanta ayudar. Nunca me rindo y soy muy perseverante, tengo algunos conocimientos de informática que pueden ayudar y soy muy tranquilo pero pasional.</p>
         </div>
     </footer>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         emailjs.init('7PsH-K6WtxF1JVm7-')
