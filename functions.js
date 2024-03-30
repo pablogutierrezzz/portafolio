@@ -5,8 +5,22 @@ let e_label = document.getElementById('email_id-label');
 let n_label = document.getElementById('from_name-label');
 let from_name = document.getElementById('from_name');
 let email_id = document.getElementById('email_id');
+let form = document.getElementById('form');
 
 let nav = document.getElementById('nav-two');
+
+let icon1 = document.getElementById('icon-1');
+let icon2 = document.getElementById('icon-2');
+let icon3 = document.getElementById('icon-3');
+let icon4 = document.getElementById('icon-4');
+let icon5 = document.getElementById('icon-5');
+let icon6 = document.getElementById('icon-6');
+let icon7 = document.getElementById('icon-7');
+
+let p_1 = document.getElementById('p-1');
+
+let img1 = document.getElementById('img-1');
+let img2 = document.getElementById('img-2');
 
 const btn_s = document.getElementById('button');
 
@@ -97,13 +111,44 @@ email_id.addEventListener('blur', () => {
     }
 })
 
-if(window.innerWidth <= 460){
-
-    window.addEventListener('scroll', () => {
-        setTimeout(() =>{
-            nav.classList.add('filtro');
-        }, 4000)
-    })
-
+function quitar(){
+    nav.classList.remove('filtro');
 }
 
+if(window.innerWidth <= 530){
+    let a = setInterval(quitar, 4000);
+
+    window.addEventListener('scroll', () => {
+        nav.classList.add('filtro');
+    })
+}
+
+const animacion = (entradas, observador) => {
+
+    entradas.forEach((entry) => {
+        if(entry.isIntersecting){
+            setInterval(() => {
+                entry.target.classList.add('visible');
+            }, 2000)
+        } 
+    });
+}
+
+const observador = new IntersectionObserver(animacion,{
+    root: null,
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 1.0
+});
+
+observador.observe(icon1);
+observador.observe(icon2);
+observador.observe(icon3);
+observador.observe(icon4);
+observador.observe(icon5);
+observador.observe(icon6);
+observador.observe(icon7);
+
+observador.observe(p_1);
+
+observador.observe(img1);
+observador.observe(img2);

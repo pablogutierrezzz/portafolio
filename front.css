@@ -22,17 +22,17 @@ body{
 }
 
 body.dark h1, body.dark p{
-    color: white;
+    color: #f3f3f3;
 }
 
 body.dark nav{
-    background-color: #f3f3f3;
+    background-color: #b7c2ce;
 
     & a{
         color: black;
     }
 
-    & a:hover::before{
+    & a::before{
         background: black;
     }
 }
@@ -64,6 +64,98 @@ body::-webkit-scrollbar-thumb:hover{
     background: #161412;
 }
 
+body.dark header{
+    & .sub-header{
+        & img{
+            filter: drop-shadow(0 0 10px #f9fafc);
+        }
+    }
+
+    & .redes a{
+        background: #262626;
+        outline: 2px solid #ebeef3;
+        color: white;
+    }
+
+    & .redes a::before{
+        background: #f9fafc;
+        transition: 0.3s;
+    }
+
+    & .redes a:hover::before{
+        width: 100%;
+    }
+
+    & .redes a:hover{
+        color: black;
+        filter: drop-shadow(0 0 5px white);
+    }
+}
+
+body.dark main{
+    & .first-main{
+        background: #7f8084;
+        border-color: #262626;
+
+        & h2{
+            color: #f3f3f3;
+        }
+    }
+
+    & .second-main{
+        background: #afb2b7;
+        border-color: #262626;
+
+        & span a{
+            background: #262526;
+            color: #f3f3f3;
+        }
+    }
+}
+
+body.dark footer{
+    background: #5a473a;
+
+    & #form{
+        & span input, textarea{
+            background: #262626;
+            border-color: white;
+            outline-color: white;
+        }
+
+        & span label{
+            color: #f9fafc;
+        }
+
+        & button{
+            outline-color: black;
+            border: 2px solid white;
+            background: #b7c2ce;
+            color: #262626;
+        }
+
+        & button::before{
+            background: #262626;
+        }
+
+        & button:hover{
+            color: white;
+        }
+    }
+}
+
+body.dark::-webkit-scrollbar{
+    background: #e1e8ef;
+}
+
+body.dark::-webkit-scrollbar-thumb{
+    background: #b7c2ce;
+}
+
+body.dark::-webkit-scrollbar-thumb:hover{
+    background: #161412;
+}
+
 header{
     height: 100vh;
     display: flex;
@@ -83,6 +175,9 @@ header{
         transition: 0.5s;
         outline: 3px solid black;
         filter: drop-shadow(0px 0px 10px black);
+        visibility: hidden;
+        animation: expand .6s forwards;
+        animation-delay: 1.8s;
     }
 
     & span::before{
@@ -174,16 +269,24 @@ header{
     & h1{
         font-size: 7.3vw;
         margin-top: 85px;
+        visibility: hidden;
+        animation: expand .6s forwards;
+        animation-delay: .6s;
     }
 
     & img{
         width: 40%;
+        transition: 0.4s ease all;
+        animation: expand .6s forwards;
     }
 
     & .redes{
         display: flex;
         margin: 15px 0 20px 0;
         gap: 15px;
+        visibility: hidden;
+        animation: expand .6s forwards;
+        animation-delay: 1.2s;
     }
 
     & .redes a{
@@ -220,9 +323,23 @@ header{
     & .redes a:hover{
         color: #f3f3f3;
         transition: 0.3s;
+        filter: drop-shadow(0 0 5px black);
     }
 }
 
+@keyframes expand {
+    from{
+        visibility: visible;
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    to{
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+    }
+}
 
 .nav{
     display: flex;
@@ -279,6 +396,8 @@ header{
     border-radius: 15px;
     transform: translate(0, -50%);
     z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
     display: none;
 
     & a{
@@ -332,6 +451,48 @@ header{
     font-size: 1.4vw;
     padding: 10px;
     border-radius: 10px;
+    opacity: 0;
+    transform: scale(0);
+}
+
+#icon-1{
+    animation-delay: 0s;
+}
+
+#icon-2{
+    animation-delay: 0.2s;
+}
+
+#icon-3{
+    animation-delay: 0.4s;
+}
+
+#icon-4{
+    animation-delay: 0.6s;
+}
+
+#icon-5{
+    animation-delay: 0.8s;
+}
+
+#icon-6{
+    animation-delay: 1s;
+}
+
+#icon-7{
+    animation-delay: 1.2s;
+}
+
+
+@keyframes show{
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.icons span.visible{
+    animation: show 0.4s ease forwards;
 }
 
 .icons span:nth-child(2){
@@ -381,50 +542,53 @@ header{
     grid-template-columns: 1fr 1fr;
     background-color: #d7d8da;
     border-bottom: 10px solid #5a473a;
+    place-items: center;
 
     & h2{
-        text-align: center;
-        margin-top: 180px;
+        margin-top: 200px;
+        margin-bottom: 200px;
         grid-column: 2;
         grid-row: 1;
         font-size: 5.1vw;
         position: sticky;
-        top: 270px;
+        top: 260px;
     }
 
     & span{
-        display: flex;
-        flex-direction: column;
-        margin: auto;
         outline: 3px solid black;
         border-radius: 15px;
-        margin-top: 80px;
-        padding: 20px;
         text-align: center;
         background-color: #afb2b7;
         width: 80%;
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    & span.visible{
+        animation: show 0.4s ease forwards;
+    }
+
+    & span img{
+        width: 95%;
+        margin: auto;
+        border-radius: 15px;
+    }
+
+    & span a{
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        gap: 20px;
+        padding: 15px;
+        font-size: 25px;
+        color: black;
+        border-radius: 15px;
     }
 
     & span:nth-child(1){
         grid-column: 1;
         grid-row: 1;
     }
-
-    & span:nth-child(2){
-        grid-column: 1;
-        grid-row: 2;
-        margin-bottom: 80px;
-    }
-}
-
-.second-main span img{
-    width: 80%;
-    margin: auto;
-}
-
-.second-main span a{
-    display: block;
-    width: 100%;
 }
 
 footer{
@@ -510,7 +674,7 @@ footer{
     padding: 10px;
     background: #5a473a;
     border: none;
-    color: #f3f3f3;
+    color: #fff;
     border-radius: 5px;
     cursor: pointer;
     z-index: 1;
@@ -561,23 +725,44 @@ footer{
     & img{
         width: 8.7vw;
         position: absolute;
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    & img.visible{
+        animation: pop-up 0.6s forwards;
     }
 
     & img:nth-child(2){
         top: 20px;
         right: 2.9vw;
-        transform: rotate(-10deg);
     }
 
     & img:nth-child(3){
         top: 20px;
         right: 14.1vw;
-        transform: rotate(10deg);
+    }
+}
+
+@keyframes pop-up {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50%{
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 .filtro{
-    display: flex;
+    opacity: 1;
 }
 
 @media screen and (max-width: 750px){
@@ -744,6 +929,10 @@ footer{
         display: none;
     }
 
+    .nav-two{
+        display: flex;
+    }
+
     main{
         border-top: 10px solid #5a473a;
     }
@@ -769,6 +958,20 @@ footer{
             width: 70%;
         }
     }
+
+    .second-main{
+        & span a{
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px){
+    .contacto{
+        & p:nth-child(5){
+            font-size: 16px;
+        }
+    }
 }
 
 @media screen and (max-width: 460px){
@@ -790,6 +993,71 @@ footer{
     .second-main{
         & h2{
             font-size: 35px;
+        }
+    }
+
+    #form{
+        & span input {
+            font-size: 16px;
+        }
+
+        & span label{
+            font-size: 18px;
+        }
+
+        & button{
+            font-size: 18px;
+        }
+    }
+
+    header{
+        & span{
+            top: 18px;
+            left: 18px;
+            height: 45px;
+            width: 85px;
+        } 
+    }
+
+    .contacto{
+        & img:nth-child(2){
+            right: 1%;
+        }
+
+        & img:nth-child(3){
+            right: 20%;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .contacto{
+        & img:nth-child(2){
+            width: 70px;
+        }
+
+        & img:nth-child(3){
+            width: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .contacto{
+        & img:nth-child(2){
+            width: 60px;
+            right: 0;
+        }
+
+        & img:nth-child(3){
+            width: 60px;
+            right: 60px;
+        }
+    }
+
+    .sub-header{
+        & .redes a{
+            font-size: 18px;
         }
     }
 }
